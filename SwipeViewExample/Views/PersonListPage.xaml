@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="SwipeViewExample.Views.PersonListPage">
+     <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <OnPlatform.Platforms>
+                <On Platform="iOS" Value="0, 20, 0, 0" />
+              
+            </OnPlatform.Platforms>
+        </OnPlatform>
+    </ContentPage.Padding>
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="Get Person" Clicked="OnClicked"></Button>
+            <ListView HasUnevenRows="False" SeparatorVisibility="None" ItemsSource="{Binding .}" VerticalOptions="Center">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <SwipeView  >
+                                <SwipeView.RightItems>
+                                    <SwipeItems SwipeBehaviorOnInvoked="Close" Mode="Execute" >
+                                        <SwipeItem Text="Delete"  BackgroundColor="Red" Invoked="OnDelete"
+                                                   CommandParameter="{Binding .}"/>
+                                    </SwipeItems>
+                      
+
+
+                                </SwipeView.RightItems>
+                                <Grid HeightRequest="0" Margin="0,0,0,5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*"/>
+                                     <RowDefinition Height="2*"/>
+                                </Grid.RowDefinitions>
+                                <Image  Source="{Binding picture.large}" Aspect="AspectFit"
+                                       Grid.Row="0"
+                                       Grid.Column="0"
+                                       Grid.RowSpan="2" Visual="Material"/>
+                                <Label Text="{Binding name.first}" Margin="0,0,0,-5" VerticalOptions="CenterAndExpand"  Grid.Column="1" Grid.Row="0" />
+                                <Label Text="{Binding name.last}" VerticalOptions="Center"  Grid.Column="1" Grid.Row="1" />
+                            </Grid>
+                            </SwipeView>
+                            
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

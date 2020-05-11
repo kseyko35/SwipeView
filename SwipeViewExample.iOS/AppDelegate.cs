@@ -24,7 +24,7 @@ namespace SwipeViewExample.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
-
+            global::Xamarin.Forms.Device.SetFlags(new[] { "SwipeView_Experimental" }); //Added to use swipe
             return base.FinishedLaunching(app, options);
         }
     }

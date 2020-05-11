@@ -1,6 +1,5 @@
-﻿using System;
+﻿using SwipeViewExample.Views;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace SwipeViewExample
 {
@@ -10,7 +9,7 @@ namespace SwipeViewExample
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new PersonListPage(); 
         }
 
         protected override void OnStart()

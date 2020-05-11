@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="SwipeViewExample.MainPage">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <OnPlatform.Platforms>
+                <On Platform="iOS" Value="0, 20, 0, 0" />
+              
+            </OnPlatform.Platforms>
+        </OnPlatform>
+    </ContentPage.Padding>
+    <StackLayout>
+     <SwipeView SwipeStarted="onSwipeStarted" SwipeEnded="onSwipeEnded" SwipeChanging="onSwipeChanging">
+        <SwipeView.LeftItems>
+            <SwipeItems Mode="Execute">
+                <SwipeItem Text="Lsssdsd" BackgroundColor="#7600FF">
+                
+                </SwipeItem>
+                <SwipeItem Text="Left - 2" BackgroundColor="Green"/>
+                </SwipeItems>
+        </SwipeView.LeftItems>
+        <SwipeView.RightItems Text="Right" >
+            <SwipeItem Text="Right 1" BackgroundColor="Bisque"/>
+            </SwipeView.RightItems>
+         <SwipeView.TopItems>
+             <SwipeItem Text="Top Item" BackgroundColor="Black" Invoked="onInvoked"></SwipeItem>
+         </SwipeView.TopItems>
+         <SwipeView.BottomItems>
+             <SwipeItem Text="Bottom Item" BackgroundColor="Chartreuse"/>
+            </SwipeView.BottomItems>
+        
+        <BoxView BackgroundColor="Blue" HeightRequest="150" WidthRequest="150"></BoxView>
+      </SwipeView>
+   </StackLayout>
+</ContentPage>
